@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,16 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   user$: Observable<User | null> = this.authService.user$;
   user: User | null = null;
 
+
   ngOnInit(): void {
-    this.authService.user$.subscribe(user => {
+    this.user$.subscribe(user => {
       this.user = user;
-    })
-    console.log(this.router.url);
+    });
   }
 
   logout() {

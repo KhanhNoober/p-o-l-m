@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="nav-bar">
     <span class="nav-component hover" (click)="nagivateToHome()">Páo củ cải</span>
     <span class="spacer"></span>
     <span *ngIf="!(user$ | async)">
@@ -13,6 +13,6 @@
     </button>
     <span *ngIf="(user$ | async)" class="center">
         <button mat-stroked-button color="primary" class="nav-component hide" (click)="logout()">Đăng xuất</button>
-        <img class="profile nav-component" [src]="user?.photoURL" alt="profile photo">
+        <img class="profile nav-component hover" [src]="user?.photoURL" alt="profile photo" routerLink="/profile">
     </span>
 </mat-toolbar>

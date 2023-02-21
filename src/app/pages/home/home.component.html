@@ -1,7 +1,8 @@
+<mat-progress-bar *ngIf="(articles$ | async)?.isLoading" mode="indeterminate"></mat-progress-bar>
 <div class="article-container">
     <app-article class="article" *ngFor="let article of (articles$ | async)?.articles"
         [article]="article"></app-article>
-    <div class="page-nav">
+    <div class="page-nav" *ngIf="(articles$ | async)">
         <button mat-icon-button [disabled]="currentPage <= 1" (click)="loadPreviousPage()">
             <mat-icon>chevron_left</mat-icon>
         </button>

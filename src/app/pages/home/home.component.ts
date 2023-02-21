@@ -29,12 +29,12 @@ export class HomeComponent implements OnInit {
   loadNextPage(): void {
     this.currentPage += 1;
     this.store.dispatch(ArticleActions.getArticles({ page: this.currentPage, perPage: 10 }));
-    window.scrollTo(0, 0);
+    window.scrollTo({ behavior: 'smooth', top: 0 });
   }
 
   loadPreviousPage(): void {
     this.currentPage -= 1;
     this.store.dispatch(ArticleActions.getArticles({ page: this.currentPage, perPage: 10 }));
-    window.scrollTo(0, 0);
+    window.scrollTo({ behavior: 'smooth', top: 0 });
   }
 }

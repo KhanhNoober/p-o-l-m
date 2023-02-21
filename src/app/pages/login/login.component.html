@@ -1,4 +1,5 @@
-<div style="padding: 5rem">
+<mat-progress-bar *ngIf="isWaiting" mode="indeterminate"></mat-progress-bar>
+<div style="padding: 5rem" *ngIf="!isWaiting">
     <h1>Không hiện popup login? bấm nút đăng nhập ở bên dưới</h1>
     <button mat-flat-button color="primary" (click)="login()">Đăng nhập</button>
 </div>

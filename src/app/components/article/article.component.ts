@@ -12,7 +12,7 @@ export class ArticleComponent {
 
   constructor(private router: Router) { }
 
-  navigateToArticle(url: string) {
-    window.open(url, '_blank');
+  navigateToArticle(id: number) {
+    this.router.navigate(['/article', id]);
   }
 }

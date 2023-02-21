@@ -5,8 +5,8 @@
         <mat-card-subtitle>@{{article.user.username}}</mat-card-subtitle>
     </mat-card-header>
     <img *ngIf="article.cover_image" mat-card-image [src]="article.cover_image" alt="cover_image"
-        (click)="navigateToArticle(article.url)" class="hover">
-    <mat-card-content (click)="navigateToArticle(article.url)" class="hover">
+        (click)="navigateToArticle(article.id)" class="hover">
+    <mat-card-content (click)="navigateToArticle(article.id)" class="hover">
         <h3>{{article.title}}</h3>
         <p>{{article.description}}</p>
     </mat-card-content>

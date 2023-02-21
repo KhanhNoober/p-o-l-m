@@ -6,23 +6,16 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth: Auth) {
-    this.user = this.auth.currentUser;
-    this.user$.next(this.user);
 
-    this.auth.onAuthStateChanged(user => {
-      if (user) {
-        this.user = user;
-        this.user$.next(this.user);
-      } else {
-        this.user = null;
-        this.user$.next(this.user);
-      }
-    });
-  }
-
-  user!: User | null;
+  user: User | null = null;
   user$ = new Subject<User | null>();
+
+  constructor(private auth: Auth) {
+    this.auth.onAuthStateChanged(user => {
+      this.user = user;
+      this.user$.next(user);
+    })
+  }
 
   async loginWithGoogle() {
     let provider = new GoogleAuthProvider()

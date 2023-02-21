@@ -30,7 +30,9 @@ import { ArticleEffects } from './redux/effects/article.effect';
     SharedModule,
     HttpClientModule,
     RouterModule,
-    StoreModule.forRoot({ articles: articleReducer }, {}),
+    StoreModule.forRoot({
+      articles: articleReducer,
+    }, {}),
     EffectsModule.forRoot([ArticleEffects])
   ],
   providers: [AuthService],
