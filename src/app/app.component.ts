@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ArticleState } from './redux/states/article.state';
 import { AuthService } from './services/auth.service';
 
 @Component({
