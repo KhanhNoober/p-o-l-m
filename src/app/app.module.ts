@@ -11,6 +11,10 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { SharedModule } from './shared/shared.module';
 import { AuthService } from './services/auth.service';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { articleReducer } from './redux/reducers/article.reducer';
+import { ArticleEffects } from './redux/effects/article.effect';
 
 
 @NgModule({
@@ -25,7 +29,9 @@ import { AuthService } from './services/auth.service';
     provideAuth(() => getAuth()),
     SharedModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    StoreModule.forRoot({ articles: articleReducer }, {}),
+    EffectsModule.forRoot([ArticleEffects])
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

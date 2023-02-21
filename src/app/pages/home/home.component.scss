@@ -22,3 +22,15 @@
         width: 100%;
     }
 }
+
+.page-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    button,
+    span {
+        margin: 0rem 1rem;
+    }
+}
